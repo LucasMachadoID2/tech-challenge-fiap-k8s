@@ -9,10 +9,8 @@ terraform {
       version = "2.36.0"
     }
   }
-
 }
 
-# Configure the AWS Provider
 provider "aws" {
   region  = var.region_default
   profile = "default"
@@ -20,14 +18,13 @@ provider "aws" {
 
 provider "kubectl" {
   host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certicate_authority[0])
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
   token                  = data.aws_eks_cluster_auth.auth.token
   load_config_file       = false
 }
 
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certicate_authority[0])
+  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority[0].data)
   token                  = data.aws_eks_cluster_auth.auth.token
 }
-

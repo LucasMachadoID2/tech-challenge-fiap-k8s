@@ -5,7 +5,6 @@ resource "aws_eks_cluster" "cluster" {
     authentication_mode = "API"
   }
 
-  # Aqui você usa o ARN da role que já existe na sua conta
   role_arn = var.role_eks_cluster
 
   version = "1.31"
