@@ -11,10 +11,10 @@ variable "instace_type1" {
   default = "t2.medium"
 }
 variable "role_eks_cluster" {
-  default = "arn:aws:iam::955655757785:role/c173096a4485959l11231379t1w955655-LabEksClusterRole-s7bEslNxcDPl"
+  default = "dsadasdasl"
 }
 variable "role_eks_node" {
-  default = "arn:aws:iam::955655757785:role/c173096a4485959l11231379t1w955655757-LabEksNodeRole-SyQ89186O4Mt"
+  default = "sadasdasdO4Mt"
 }
 variable "public_subnet_ids" {
   type = list(string)
