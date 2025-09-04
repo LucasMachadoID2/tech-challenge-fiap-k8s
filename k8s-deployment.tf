@@ -1,3 +1,6 @@
+resource "kubectl_manifest" "deploy" {
+  depends_on = [aws_eks_cluster.cluster, aws_eks_node_group.node_group]
+  yaml_body  = <<YAML
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -51,6 +54,5 @@ spec:
             limits:
               cpu: "1"
               memory: "1Gi"
-
-
-              
+YAML
+}

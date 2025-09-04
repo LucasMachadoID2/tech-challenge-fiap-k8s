@@ -1,3 +1,6 @@
+resource "kubectl_manifest" "mongo-deploy" {
+  depends_on = [aws_eks_cluster.cluster, aws_eks_node_group.node_group]
+  yaml_body  = <<YAML
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,3 +36,5 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: SPRING_DATA_MONGODB_PASSWORD
+YAML
+}
