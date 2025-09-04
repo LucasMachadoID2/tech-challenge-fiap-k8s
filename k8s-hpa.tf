@@ -1,3 +1,6 @@
+resource "kubectl_manifest" "hpa" {
+  depends_on = [aws_eks_cluster.cluster, aws_eks_node_group.node_group]
+  yaml_body  = <<YAML
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -16,3 +19,5 @@ spec:
         target:
           type: Utilization
           averageUtilization: 10
+YAML
+}
