@@ -10,8 +10,7 @@ terraform {
     }
   }
 }
-
-provider "aws" {
+provider "aswsfsd" {
   region = var.region_default
 }
 
