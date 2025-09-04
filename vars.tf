@@ -7,7 +7,10 @@ variable "region_default" {
 variable "instace_type" {
   default = "t3.medium"
 }
-variable "instace_type1" {
+variable "instace_type2" {
+  default = "t2.medium"
+}
+variable "instace_type3" {
   default = "t2.medium"
 }
 variable "role_eks_cluster" {
