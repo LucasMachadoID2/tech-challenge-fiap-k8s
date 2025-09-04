@@ -12,8 +12,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = var.region_default
-  profile = "default"
+  region = var.region_default
 }
 
 provider "kubectl" {
