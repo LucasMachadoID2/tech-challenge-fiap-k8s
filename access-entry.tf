@@ -1,4 +1,4 @@
-resource "aws_eks_access_entry" "access_entry" {
+resource "aws_eks_access_entry" "access_entry23dsas" {
   cluster_name      = aws_eks_cluster.cluster.name
   principal_arn     = "arn:aws:iam::955655757785:role/voclabs"
   kubernetes_groups = ["grupo-1"]
