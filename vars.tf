@@ -24,5 +24,3 @@ variable "public_subnet_ids" {
     "subnet-09fb84317794bbd19"
   ]
 }
-
-
