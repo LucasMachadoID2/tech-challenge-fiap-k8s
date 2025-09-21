@@ -22,31 +22,46 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: SPRING_DATA_MONGODB_HOST
+            - name: AWS_REGION
               valueFrom:
                 configMapKeyRef:
                   name: app-config
-                  key: SPRING_DATA_MONGODB_HOST
-            - name: SPRING_DATA_MONGODB_PORT
+                  key: AWS_REGION
+            - name: USERS_TABLE_NAME
               valueFrom:
                 configMapKeyRef:
                   name: app-config
-                  key: SPRING_DATA_MONGODB_PORT
-            - name: SPRING_DATA_MONGODB_DATABASE
+                  key: USERS_TABLE_NAME
+            - name: ORDERS_TABLE_NAME
               valueFrom:
                 configMapKeyRef:
                   name: app-config
-                  key: SPRING_DATA_MONGODB_DATABASE
-            - name: SPRING_DATA_MONGODB_USERNAME
+                  key: ORDERS_TABLE_NAME
+            - name: PRODUCTS_TABLE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: PRODUCTS_TABLE_NAME
+            - name: PAYMENTS_TABLE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: PAYMENTS_TABLE_NAME
+            - name: SPRING_PROFILES_ACTIVE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: SPRING_PROFILES_ACTIVE
+            - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
                   name: app-secrets
-                  key: SPRING_DATA_MONGODB_USERNAME
-            - name: SPRING_DATA_MONGODB_PASSWORD
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: app-secrets
-                  key: SPRING_DATA_MONGODB_PASSWORD
+                  key: AWS_SECRET_ACCESS_KEY
           resources:
             requests:
               cpu: "500m"
