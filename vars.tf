@@ -11,16 +11,16 @@ variable "instace_type1" {
   default = "t2.medium"
 }
 variable "role_eks_cluster" {
-  default = "arn:aws:iam::955655757785:role/c173096a4485959l11231379t1w955655-LabEksClusterRole-s7bEslNxcDPl"
+  default = "arn:aws:iam::730335652151:role/c176277a4554083l11733099t1w730335-LabEksClusterRole-yu8vfF6O8ayq"
 }
 variable "role_eks_node" {
-  default = "arn:aws:iam::955655757785:role/c173096a4485959l11231379t1w955655757-LabEksNodeRole-SyQ89186O4Mt"
+  default = "arn:aws:iam::730335652151:role/c176277a4554083l11733099t1w730335652-LabEksNodeRole-1WkD0NQZBl2E"
 }
 variable "public_subnet_ids" {
   type = list(string)
   default = [
-    "subnet-050c143924d712646",
-    "subnet-079b49b3e82add6cf",
-    "subnet-09fb84317794bbd19"
+    "subnet-06257d9b371b5f3f1",
+    "subnet-08567f62853c63244",
+    "subnet-089462bc7fa638569"
   ]
 }
