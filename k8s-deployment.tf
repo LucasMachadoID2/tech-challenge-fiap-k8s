@@ -22,31 +22,6 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: SPRING_DATA_MONGODB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: app-config
-                  key: SPRING_DATA_MONGODB_HOST
-            - name: SPRING_DATA_MONGODB_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: app-config
-                  key: SPRING_DATA_MONGODB_PORT
-            - name: SPRING_DATA_MONGODB_DATABASE
-              valueFrom:
-                configMapKeyRef:
-                  name: app-config
-                  key: SPRING_DATA_MONGODB_DATABASE
-            - name: SPRING_DATA_MONGODB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: app-secrets
-                  key: SPRING_DATA_MONGODB_USERNAME
-            - name: SPRING_DATA_MONGODB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: app-secrets
-                  key: SPRING_DATA_MONGODB_PASSWORD
             - name: TOKEN_MERCADO_PAGO
               valueFrom:
                 secretKeyRef:
