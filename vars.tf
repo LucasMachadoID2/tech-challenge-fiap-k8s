@@ -24,3 +24,7 @@ variable "public_subnet_ids" {
     "subnet-09fb84317794bbd19"
   ]
 }
+variable "token_mercado_pago" {
+  type        = string
+  sensitive   = true
+}

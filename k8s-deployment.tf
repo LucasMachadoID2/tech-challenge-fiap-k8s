@@ -47,6 +47,11 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: SPRING_DATA_MONGODB_PASSWORD
+            - name: TOKEN_MERCADO_PAGO
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: TOKEN_MERCADO_PAGO
           resources:
             requests:
               cpu: "500m"

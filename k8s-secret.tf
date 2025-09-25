@@ -9,5 +9,6 @@ type: Opaque
 stringData:
   SPRING_DATA_MONGODB_USERNAME: admin
   SPRING_DATA_MONGODB_PASSWORD: password
+  TOKEN_MERCADO_PAGO: ${var.token_mercado_pago}
 YAML
 }
