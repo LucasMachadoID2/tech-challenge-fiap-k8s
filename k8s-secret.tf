@@ -7,7 +7,6 @@ metadata:
   name: app-secrets
 type: Opaque
 stringData:
-  SPRING_DATA_MONGODB_USERNAME: admin
-  SPRING_DATA_MONGODB_PASSWORD: password
+##credenciais da aws
 YAML
 }

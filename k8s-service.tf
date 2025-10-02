@@ -5,6 +5,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tech-chall-service
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internal
 spec:
   type: LoadBalancer
   selector:

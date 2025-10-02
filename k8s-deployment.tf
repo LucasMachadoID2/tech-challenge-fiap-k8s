@@ -1,5 +1,10 @@
 resource "kubectl_manifest" "deploy" {
-  depends_on = [aws_eks_cluster.cluster, aws_eks_node_group.node_group]
+  depends_on = [
+    aws_eks_cluster.cluster, 
+    aws_eks_node_group.node_group,
+    kubectl_manifest.aws_credentials
+  ]
+  
   yaml_body  = <<YAML
 apiVersion: apps/v1
 kind: Deployment
@@ -17,36 +22,64 @@ spec:
     spec:
       containers:
         - name: tech-chall-container
-          image: gabitriferreira/tech-challenge-app:latest
+          image: marjorymatos/tech-chall-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
-            - name: SPRING_DATA_MONGODB_HOST
+            # REMOVER a duplicata - usar apenas uma fonte para AWS_REGION
+            - name: AWS_REGION
               valueFrom:
                 configMapKeyRef:
                   name: app-config
-                  key: SPRING_DATA_MONGODB_HOST
-            - name: SPRING_DATA_MONGODB_PORT
+                  key: AWS_REGION
+            - name: DYNAMODB_ORDERS_TABLE
               valueFrom:
                 configMapKeyRef:
                   name: app-config
-                  key: SPRING_DATA_MONGODB_PORT
-            - name: SPRING_DATA_MONGODB_DATABASE
+                  key: DYNAMODB_ORDERS_TABLE
+            - name: DYNAMODB_PAYMENTS_TABLE
               valueFrom:
                 configMapKeyRef:
                   name: app-config
-                  key: SPRING_DATA_MONGODB_DATABASE
-            - name: SPRING_DATA_MONGODB_USERNAME
+                  key: DYNAMODB_PAYMENTS_TABLE
+            - name: DYNAMODB_PRODUCTS_TABLE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DYNAMODB_PRODUCTS_TABLE
+            - name: DYNAMODB_USERS_TABLE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DYNAMODB_USERS_TABLE
+            # Credenciais AWS do Secret
+            - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: app-secrets
-                  key: SPRING_DATA_MONGODB_USERNAME
-            - name: SPRING_DATA_MONGODB_PASSWORD
+                  name: aws-credentials
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: app-secrets
-                  key: SPRING_DATA_MONGODB_PASSWORD
+                  name: aws-credentials
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: AWS_SESSION_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: AWS_SESSION_TOKEN      
+            # REMOVER esta linha duplicada:
+            # - name: AWS_REGION
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: aws-credentials
+            #       key: AWS_REGION
+            # Desabilitar MongoDB
+            - name: SPRING_DATA_MONGODB_URI
+              value: ""
+            - name: SPRING_PROFILES_ACTIVE
+              value: "aws"
           resources:
             requests:
               cpu: "500m"
