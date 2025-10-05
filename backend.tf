@@ -1,4 +1,4 @@
-/* terraform {
+terraform {
   cloud {
     organization = "danilo-fiap"
     workspaces {
@@ -6,4 +6,4 @@
     }
   }
 }
- */
+ 
