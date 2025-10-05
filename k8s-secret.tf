@@ -19,7 +19,9 @@ metadata:
   name: aws-credentials
 type: Opaque
 stringData:
-  --inserir credenciais da aws para conexao com dynamodb
+  AWS_ACCESS_KEY_ID: ${var.aws_access_key_id}
+  AWS_SECRET_ACCESS_KEY: ${var.aws_secret_key}
+  AWS_SESSION_TOKEN: ${var.aws_session_token}
 YAML
 }
 
