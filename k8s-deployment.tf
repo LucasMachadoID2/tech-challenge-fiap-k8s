@@ -68,13 +68,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: aws-credentials
-                  key: AWS_SESSION_TOKEN      
-            # REMOVER esta linha duplicada:
-            # - name: AWS_REGION
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: aws-credentials
-            #       key: AWS_REGION
+                  key: AWS_SESSION_TOKEN
+            - name: TOKEN_MERCADO_PAGO
+              valueFrom:
+                secretKeyRef:
+                  name: app-secrets
+                  key: TOKEN_MERCADO_PAGO
             # Desabilitar MongoDB
             - name: SPRING_DATA_MONGODB_URI
               value: ""
