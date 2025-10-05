@@ -17,22 +17,10 @@ variable "role_eks_node" {
   default = "arn:aws:iam::730335652151:role/c176277a4554083l11733099t1w730335652-LabEksNodeRole-LAN3GLa7tbci"
 }
 
-variable "aws_access_key_id"{
-  type = string
+variable "token_mercado_pago" {
+  type      = string
   sensitive = true
 }
-
-variable "aws_secret_key"{
-  type = string
-  sensitive = true
-}
-
-variable "aws_session_token"{
-  type = string
-  sensitive = true
-}
-
-
 
 variable "public_subnet_ids" {
   type = list(string)
