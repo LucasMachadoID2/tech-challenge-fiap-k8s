@@ -6,8 +6,23 @@ kind: Secret
 metadata:
   name: app-secrets
 type: Opaque
-stringData:
-  SPRING_DATA_MONGODB_USERNAME: admin
-  SPRING_DATA_MONGODB_PASSWORD: password
 YAML
 }
+
+resource "kubectl_manifest" "aws_credentials" {
+  depends_on = [aws_eks_cluster.cluster, aws_eks_node_group.node_group]
+  
+  yaml_body = <<YAML
+apiVersion: v1
+kind: Secret
+metadata:
+  name: aws-credentials
+type: Opaque
+stringData:
+  AWS_ACCESS_KEY_ID: ${var.AWS_ACCESS_KEY_ID}
+  AWS_SECRET_ACCESS_KEY: ${var.AWS_SECRET_ACCESS_KEY}
+  AWS_SESSION_TOKEN: ${var.AWS_SESSION_TOKEN}
+  TOKEN_MERCADO_PAGO: ${var.token_mercado_pago}
+YAML
+}
+

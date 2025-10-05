@@ -6,8 +6,10 @@ kind: ConfigMap
 metadata:
   name: app-config
 data:
-  SPRING_DATA_MONGODB_HOST: mongodb
-  SPRING_DATA_MONGODB_PORT: "27017"
-  SPRING_DATA_MONGODB_DATABASE: tech-chall
+  AWS_REGION: "us-east-1"
+  DYNAMODB_ORDERS_TABLE: "tech-challenge-orders"
+  DYNAMODB_PAYMENTS_TABLE: "tech-challenge-payments"
+  DYNAMODB_PRODUCTS_TABLE: "tech-challenge-products"
+  DYNAMODB_USERS_TABLE: "tech-challenge-users"
 YAML
 }

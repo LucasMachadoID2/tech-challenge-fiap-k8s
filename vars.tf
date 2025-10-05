@@ -11,16 +11,37 @@ variable "instace_type1" {
   default = "t2.medium"
 }
 variable "role_eks_cluster" {
-  default = "arn:aws:iam::955655757785:role/c173096a4485959l11231379t1w955655-LabEksClusterRole-s7bEslNxcDPl"
+  default = "arn:aws:iam::730335652151:role/c176277a4554083l11733099t1w730335-LabEksClusterRole-Y5Os8P5kzZwA"
 }
 variable "role_eks_node" {
-  default = "arn:aws:iam::955655757785:role/c173096a4485959l11231379t1w955655757-LabEksNodeRole-SyQ89186O4Mt"
+  default = "arn:aws:iam::730335652151:role/c176277a4554083l11733099t1w730335652-LabEksNodeRole-LAN3GLa7tbci"
 }
+
+variable "AWS_ACCESS_KEY_ID" {
+  type      = string
+  sensitive = true
+}
+
+variable "AWS_SECRET_ACCESS_KEY" {
+  type      = string
+  sensitive = true
+}
+
+variable "AWS_SESSION_TOKEN" {
+  type      = string
+  sensitive = true
+}
+
+variable "token_mercado_pago" {
+  type        = string
+  sensitive   = true
+}
+
 variable "public_subnet_ids" {
   type = list(string)
   default = [
-    "subnet-050c143924d712646",
-    "subnet-079b49b3e82add6cf",
-    "subnet-09fb84317794bbd19"
+    "subnet-0528d0d97629298f3",
+    "subnet-0c58878b132d7af43",
+    "subnet-0c9595595afbd7a53"
   ]
 }
