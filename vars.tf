@@ -22,6 +22,11 @@ variable "token_mercado_pago" {
   sensitive = true
 }
 
+variable "AWS_SECRET_ACCESS_KEY" {
+  type      = string
+  sensitive = true
+}
+
 variable "public_subnet_ids" {
   type = list(string)
   default = [

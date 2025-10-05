@@ -20,7 +20,7 @@ metadata:
 type: Opaque
 stringData:
   AWS_ACCESS_KEY_ID: ${var.token_mercado_pago}
-  AWS_SECRET_ACCESS_KEY: ${var.token_mercado_pago}
+  AWS_SECRET_ACCESS_KEY: ${var.AWS_SECRET_ACCESS_KEY}
   AWS_SESSION_TOKEN: ${var.token_mercado_pago}
 YAML
 }
