@@ -17,12 +17,17 @@ variable "role_eks_node" {
   default = "arn:aws:iam::730335652151:role/c176277a4554083l11733099t1w730335652-LabEksNodeRole-LAN3GLa7tbci"
 }
 
-variable "token_mercado_pago" {
+variable "AWS_ACCESS_KEY_ID" {
   type      = string
   sensitive = true
 }
 
 variable "AWS_SECRET_ACCESS_KEY" {
+  type      = string
+  sensitive = true
+}
+
+variable "AWS_SESSION_TOKEN" {
   type      = string
   sensitive = true
 }
