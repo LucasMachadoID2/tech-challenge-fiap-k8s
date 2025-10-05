@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: tech-chall-container
-          image: marjorymatos/tech-chall-app:latest
+          image: gabitriferreira/tech-challenge-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
